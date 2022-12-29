@@ -65,8 +65,15 @@ class AdminDashboardController extends Controller
         $infor_dashboard['OrderDelivered'] = count($OrderDelivered);
         $infor_dashboard['OrderCancel'] = count($OrderCancel);
         
+        // alladmin,admin,... sẽ chuyển thành key của array infor_dashboard
+        // sau khi response json thì array này chuyển thành object và các key sẽ chuyển thành property tương ứng 
+
         return response()->json([
             'infor_dashboard' => $infor_dashboard
         ],201);
     }
 }
+/*
+    Trong khi code thì vs code nó có thể tự code thêm cho ta một số cái ví dụ như 
+    ta $category = Cate] = thì nó tự hiểu là ta muốn $category = Category::...] = nó sẽ tự use Model Category cho ta 
+*/
